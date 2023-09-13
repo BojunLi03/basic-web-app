@@ -7,5 +7,11 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
+  if (query.toLowerCase().includes("andrew id")) {
+    return (
+      "I don't know, but it likely isn't bojunl." 
+    );
+  }
+
   return "";
 }
