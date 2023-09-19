@@ -27,10 +27,10 @@ export default function QueryProcessor(query: string): string {
   }
                       //Which of the following numbers is the largest: 35, 57, 47?
   const addMatch2 = query.match(/Which of the following numbers is the largest: (\d+), (\d+), (\d+)/);
-  if (addMatch) {
-    const x: number = parseInt(addMatch[1]);
-    const y: number = parseInt(addMatch[2]);
-    const z: number = parseInt(addMatch[3]);
+  if (addMatch2) {
+    const x: number = parseInt(addMatch2[1]);
+    const y: number = parseInt(addMatch2[2]);
+    const z: number = parseInt(addMatch2[3]);
     if (x > y && x > z){
       return x.toString();
     }
