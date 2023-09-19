@@ -89,6 +89,13 @@ export default function QueryProcessor(query: string): string {
     }
     return toReturn.toString();
   }
+
+  //What is 30 to the power of 16?
+  const add2 = query.match(/What is (\d+) to the power of (\d+)/);
+  if(add2){
+    return (Math.pow(parseInt(add2[1]), parseInt(add2[2]))).toString();
+  }
+
   return "";
 
   
