@@ -50,6 +50,18 @@ export default function QueryProcessor(query: string): string {
     return (x*y).toString();
   }
 
-
+  //Which of the following numbers is both a square and a cube: 1331, 2291, 4755, 1871, 625, 64, 154?
+  const addMatch4 = query.match(/Which of the following numbers is both a square and a cube: (\d+), (\d+), (\d+), (\d+), (\d+), (\d+), (\d+)/);
+  if (addMatch4) {
+    var toReturn: number = parseInt(addMatch4[1]);
+    for(let i = 1; i < 7; i ++){
+      var x: number = parseInt(addMatch4[i]);
+      if (Math.sqrt(x)*Math.sqrt(x) == x && Math.cbrt(x)*Math.cbrt(x)*Math.cbrt(x) == x){
+        toReturn = x;
+      }
+    
+    }
+    return toReturn.toString();
+  }
   return "";
 }
