@@ -42,6 +42,14 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
+  //What is 66 multiplied by 13?	
+  const addMatch3 = query.match(/What is (\d+) multiplied by (\d+)/);
+  if (addMatch3) {
+    const x: number = parseInt(addMatch3[1]);
+    const y: number = parseInt(addMatch3[2]);
+    return (x*y).toString();
+  }
+
 
   return "";
 }
