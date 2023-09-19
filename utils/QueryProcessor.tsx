@@ -19,18 +19,28 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
-  if (query.toLowerCase().includes("20 plus 44")) {
-    return (
-      "64" 
-    );
+  const addMatch = query.match(/What is (\d+) plus (\d+)/);
+  if (addMatch) {
+    const x: number = parseInt(addMatch[1]);
+    const y: number = parseInt(addMatch[2]);
+    return (x+y).toString();
   }
-
-  if (query.toLowerCase().includes("90 plus 88")) {
-    return (
-      "178" 
-    );
+                      //Which of the following numbers is the largest: 35, 57, 47?
+  const addMatch2 = query.match(/Which of the following numbers is the largest: (\d+), (\d+), (\d+)/);
+  if (addMatch) {
+    const x: number = parseInt(addMatch[1]);
+    const y: number = parseInt(addMatch[2]);
+    const z: number = parseInt(addMatch[3]);
+    if (x > y && x > z){
+      return x.toString();
+    }
+    else if (y > z && y > x) {
+      return y.toString();
+    }
+    else{
+      return z.toString();
+    }
   }
-
 
 
   return "";
