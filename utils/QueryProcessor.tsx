@@ -54,7 +54,7 @@ export default function QueryProcessor(query: string): string {
   const addMatch4 = query.match(/Which of the following numbers is both a square and a cube: (\d+), (\d+), (\d+), (\d+), (\d+), (\d+), (\d+)/);
   if (addMatch4) {
     var toReturn: number = parseInt(addMatch4[1]);
-    for(let i = 1; i < 7; i ++){
+    for(let i = 1; i < 8; i ++){
       var x: number = parseInt(addMatch4[i]);
       if (Math.sqrt(x)*Math.sqrt(x) == x && Math.cbrt(x)*Math.cbrt(x)*Math.cbrt(x) == x){
         toReturn = x;
@@ -68,6 +68,27 @@ export default function QueryProcessor(query: string): string {
     return (parseInt(addMatch5[1]) - parseInt(addMatch5[2])).toString();
   }
 
+
+  //Which of the following numbers are primes: 50, 68, 47, 69, 87?
+  const add1 = query.match(/Which of the following numbers are primes: (\d+), (\d+), (\d+), (\d+), (\d+)/);
+  if(add1) {
+    var toReturn: number = parseInt(add1[1]);
+    var returnOrNot: number = 1;
+    for(let i = 1; i < 6; i ++){
+      var x: number = parseInt(add1[i]);
+      for (var j = 2; j < x; j++) { // i will always be less than the parameter so the condition below will never allow parameter to be divisible by itself ex. (7 % 7 = 0) which would return true
+        if(x % j === 0) returnOrNot = 1; // when parameter is divisible by i, it's not a prime number so return false
+        else{
+          returnOrNot = 0;
+        }
+      }
+      if(returnOrNot == 0){
+        return x.toString();
+      }
+      
+    }
+    return toReturn.toString();
+  }
   return "";
 
   
