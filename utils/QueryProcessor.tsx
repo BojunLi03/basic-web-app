@@ -96,6 +96,10 @@ export default function QueryProcessor(query: string): string {
     return (Math.pow(parseInt(add2[1]), parseInt(add2[2]))).toString();
   }
 
+  const add3 = query.match(/What is (\d+) plus (\d+) plus (\d+)/);
+  if(add3){
+    return (parseInt(add3[1]) + parseInt(add3[2]) + parseInt(add3[3])).toString();
+  }
   return "";
 
   
