@@ -59,9 +59,16 @@ export default function QueryProcessor(query: string): string {
       if (Math.sqrt(x)*Math.sqrt(x) == x && Math.cbrt(x)*Math.cbrt(x)*Math.cbrt(x) == x){
         toReturn = x;
       }
-    
     }
     return toReturn.toString();
   }
+
+  const addMatch5 = query.match(/What is (\d+) minus (\d+)/);
+  if (addMatch5) {
+    return (parseInt(addMatch5[1]) - parseInt(addMatch5[2])).toString();
+  }
+
   return "";
+
+  
 }
